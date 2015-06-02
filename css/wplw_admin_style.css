@@ -1,0 +1,62 @@
+/* Boxes */
+.postbox {
+	padding-right:12px;
+}
+
+#sidebox {
+	padding:12px;
+}
+
+#sidebox .inside {
+	margin-top:0px;
+	padding:0px;
+}
+
+#poststuff .wplw-title {
+	font-size:18px;
+	padding-top:12px;
+	padding-bottom:0px;
+	padding-right:12px;
+}
+
+/* Typography */
+#poststuff h4 {
+	margin-bottom:5px;
+	margin-top:10px;
+}
+
+#poststuff p {
+	margin-top:8px;
+	margin-bottom:8px;
+}
+
+/* Input fields */
+#poststuff input {
+	margin-bottom:14px;
+	margin-top:2px;
+}
+
+#poststuff #wplw_portfolio_date, #poststuff #wplw_portfolio_description {
+	margin-bottom:9px;
+	margin-top:5px;
+}
+
+#wplw_instagram_access_token {
+	width:430px;
+	max-width:100%;
+}
+
+#wplw_instagram_userID {
+	width:250px;
+}
+
+#wplw_hashtag {
+	width:238px;
+}
+
+/* Logotype */
+#wplw-logotype {
+	background:url(img/portfolioplugin_logotype_yellow.svg) no-repeat;
+	display:block;
+	height:315px;
+}

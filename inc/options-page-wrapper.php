@@ -53,6 +53,7 @@
                                         </label><br>
                                 </fieldset>
                                 <br>
+                                <?php wp_nonce_field( 'my_wplw_update_check', 'wplw-update-check' ); ?>
                                 <input class="button-primary" type="submit" name="wplw_settings_submit" value="Save" />
                             </form>
 

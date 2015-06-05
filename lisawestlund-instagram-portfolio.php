@@ -4,7 +4,7 @@
 	 * Plugin Name: Lisa Westlund Instagram Portfolio
 	 * Plugin URI: http://www.lisawestlund.se
 	 * Description: A portfolio plugin which gets images and data from a specific Instagram account with pictures tagged with a specific hashtag.
-	 * Version: 1.0
+	 * Version: 1.1
 	 * Author: Lisa Westlund
 	 * Author URI: http://www.lisawestlund.se
 	 * License: CC BY
@@ -50,42 +50,56 @@
 		global $options;
 		
 		/* Save form input data to $options array */	
+				
 		if( isset( $_POST['wplw_form_submitted'] ) ){
-			$hidden_field = esc_html($_POST['wplw_form_submitted']);
 			
-			if( $hidden_field == 'Y' ){
-				$wplw_instagram_access_token = esc_html($_POST['wplw_instagram_access_token']);
-				$wplw_instagram_userID = esc_html($_POST['wplw_instagram_userID']);
-				$wplw_hashtag = esc_html($_POST['wplw_hashtag']);
-								
-				if( isset($_POST['wplw_portfolio_date']) ){
-					$wplw_portfolio_date = 'checked';	
-				}
+			if( ! isset( $_POST['wplw-update-check'] ) || ! wp_verify_nonce( $_POST['wplw-update-check'], 'my_wplw_update_check' ) ){
+
+				print 'Sorry, your nonce did not verify.';
+				exit;
+
+			} 
+	
+			else{
+		
+				$hidden_field = esc_html($_POST['wplw_form_submitted']);
 				
-				if( isset($_POST['wplw_portfolio_description']) ){
-					$wplw_portfolio_description = 'checked';	
+				if( $hidden_field == 'Y' ){
+					$wplw_instagram_access_token = esc_html($_POST['wplw_instagram_access_token']);
+					$wplw_instagram_userID = esc_html($_POST['wplw_instagram_userID']);
+					$wplw_hashtag = esc_html($_POST['wplw_hashtag']);
+									
+					if( isset($_POST['wplw_portfolio_date']) ){
+						$wplw_portfolio_date = 'checked';	
+					}
+					
+					if( isset($_POST['wplw_portfolio_description']) ){
+						$wplw_portfolio_description = 'checked';	
+					}
+									
+					$options = array(
+						'wplw_instagram_access_token' => $wplw_instagram_access_token,
+						'wplw_instagram_userID' => $wplw_instagram_userID,
+						'wplw_hashtag' => $wplw_hashtag,
+						'wplw_portfolio_date' => $wplw_portfolio_date,
+						'wplw_portfolio_description' => $wplw_portfolio_description
+					);
+					
+					update_option( 'wplw_instagram_portfolio', $options );
 				}
-								
-				$options = array(
-					'wplw_instagram_access_token' => $wplw_instagram_access_token,
-					'wplw_instagram_userID' => $wplw_instagram_userID,
-					'wplw_hashtag' => $wplw_hashtag,
-					'wplw_portfolio_date' => $wplw_portfolio_date,
-					'wplw_portfolio_description' => $wplw_portfolio_description
-				);
-				
-				update_option( 'wplw_instagram_portfolio', $options );
 			}
 		}
-		
+			
 		$options = get_option( 'wplw_instagram_portfolio' );
 		if( $options != '' ){
+	
 			$wplw_instagram_access_token = $options['wplw_instagram_access_token'];
 			$wplw_instagram_userID = $options['wplw_instagram_userID'];
 			$wplw_hashtag = $options['wplw_hashtag'];
 			$wplw_portfolio_date = $options['wplw_portfolio_date'];
 			$wplw_portfolio_description = $options['wplw_portfolio_description'];
 		}
+		
 		require( 'inc/options-page-wrapper.php' ); 
 	}
 	
@@ -211,21 +225,4 @@
 		}
 	}
 		 
- ?> 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+ ?>

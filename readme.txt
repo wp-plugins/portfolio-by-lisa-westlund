@@ -4,6 +4,7 @@ Donate link:
 Tags: portfolio, instagram, image, hashtag, filter, responsive
 Requires at least:
 Tested up to: 4.2.2
+Stable tag: 1.05
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,5 +44,8 @@ No. You can only use one Instagram account.
 Yes! You can add the parameter "count" to the shortcode like this: [wplw_instagram_portfolio count="12"], if you want to display for example twelwe images. It is recommended that the number of images you want to show can be divided by six - then it will fill out every row on all window widths.
 
 == Changelog ==
+= 1.05 =
+* This update carries a security bug-fix.
+
 = 1.0 =
 * This is the first version of the plugin.

@@ -4,7 +4,7 @@
 	 * Plugin Name: Lisa Westlund Instagram Portfolio
 	 * Plugin URI: http://www.lisawestlund.se
 	 * Description: A portfolio plugin which gets images and data from a specific Instagram account with pictures tagged with a specific hashtag.
-	 * Version: 1.0
+	 * Version: 1.05
 	 * Author: Lisa Westlund
 	 * Author URI: http://www.lisawestlund.se
 	 * License: CC BY
@@ -53,14 +53,14 @@
 				
 		if( isset( $_POST['wplw_form_submitted'] ) ){
 			
-			if ( ! isset( $_POST['wplw-update-check'] ) || ! wp_verify_nonce( $_POST['wplw-update-check'], 'my_wplw_update_check' ) ) {
+			if( ! isset( $_POST['wplw-update-check'] ) || ! wp_verify_nonce( $_POST['wplw-update-check'], 'my_wplw_update_check' ) ){
 
 				print 'Sorry, your nonce did not verify.';
 				exit;
 
 			} 
 	
-			else {
+			else{
 		
 				$hidden_field = esc_html($_POST['wplw_form_submitted']);
 				

@@ -4,7 +4,7 @@
 	 * Plugin Name: Lisa Westlund Instagram Portfolio
 	 * Plugin URI: http://www.lisawestlund.se
 	 * Description: A portfolio plugin which gets images and data from a specific Instagram account with pictures tagged with a specific hashtag.
-	 * Version: 1.05
+	 * Version: 1.1
 	 * Author: Lisa Westlund
 	 * Author URI: http://www.lisawestlund.se
 	 * License: CC BY
